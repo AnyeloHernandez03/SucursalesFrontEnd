@@ -29,6 +29,12 @@ export interface ListadoSucursales{
     monId:number
 }
 
+export interface ListadoMonedas{
+    monId:number,
+    monDescripcion:number,
+    monActivo:boolean
+}
+
 export interface SucursalDTO {
     sucId:number,
     sucCodigo:string,

@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    
+    <app-nav></app-nav>
+    <div class="mi-div p-3 mb-3"> 
+
+        <div class="justify-content-center text-center mb-3 " style="color: #0097AE; border-radius: 05px 05px 05px 05px; box-shadow: 1px 1px 1px 1px">
+            <h2 style="font-family:Garamond ">Eliminar sucursal</h2>
+        </div> 
+        <form [formGroup]="EliminarSucursalForm" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating mb-3">
+                <input formControlName="sucId" type="number" class="form-control" id="sucCodigo" readonly="true" placeholder="name@example.com">
+                    
+                <label for="floatingInput">Codigo</label>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-danger mb-3" type="submit" (click)="EliminarSuc()">Eliminar</button>
+                <button class="btn btn-secondary mb-3" type="submit" routerLink="/sucursales">Cancelar</button>
+           </div>
+       </form>
+   </div>
+
+</div>  

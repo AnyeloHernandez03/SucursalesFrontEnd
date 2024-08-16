@@ -26,6 +26,8 @@
                     <div *ngIf="sucDescripcion.hasError('required')">
                             La Descripcion es requerida
                     </div>
+                    
+                    
                 </div>
                 
                 <label for="floatingPassword">Descripcion</label>
@@ -52,18 +54,24 @@
             </div>
        
 
-            <div class="form-floating mb-3">
-                <input formControlName="monId" type="number" class="form-control" id="monId" placeholder="Password">
+       
+
+            <div class="form-group mb-3">
+                <label for="dropdownMenu">Selecciona una moneda</label>
+                <select formControlName="monId" class="form-control" id="dropdownMenu" [(ngModel)]="selectedItem">
+                  <option *ngFor="let item of sucursales" [value]="item.monId">
+                    {{ item.monDescripcion }}
+                  </option>
+                </select>
                 <div *ngIf="monId.invalid && (monId.dirty || monId.touched)" class="alert alert-danger">
                     <div *ngIf="monId.hasError('required')">
                             La Moneda es requerida
                     </div>
                 </div>
-                
-                <label for="floatingPassword">Moneda</label>
             </div>
-           
-
+              
+          
+      
             <div class="mb-3">
                  <button class="btn btn-primary mb-3" type="submit" (click)="crearSucursal()">Crear</button>
                  <button class="btn btn-secondary mb-3" type="submit" routerLink="/sucursales">Cancelar</button>

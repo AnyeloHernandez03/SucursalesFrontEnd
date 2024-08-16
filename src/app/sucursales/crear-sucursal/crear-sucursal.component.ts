@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SucursalCreacion } from 'src/app/services/Isucursales';
+import { ListadoMonedas, SucursalCreacion } from 'src/app/services/Isucursales';
 import { SucursalesService } from 'src/app/services/sucursales.service';
 
 @Component({
@@ -12,13 +12,14 @@ import { SucursalesService } from 'src/app/services/sucursales.service';
 export class CrearSucursalComponent implements OnInit{
   fechaActual: Date = new Date();
 
- 
+  sucursales: ListadoMonedas[] | undefined;
+  selectedItem: any;
   constructor (private formBuilder: FormBuilder, private router:Router, private service: SucursalesService ){
 
   }
 
     CrearSucursalForm = this.formBuilder.group({
-    sucCodigo:['',[Validators.required,]],
+    sucCodigo:['',[Validators.required]],
     sucDescripcion:['',[Validators.required]],
     sucDirrecion:['',[Validators.required]],
     sucIdentificacion:['',[Validators.required]],
@@ -27,7 +28,10 @@ export class CrearSucursalComponent implements OnInit{
   })
 
   ngOnInit(): void {
-
+    this.service.ListadoMonedas().subscribe(sucursales => {
+      this.sucursales = sucursales;
+      console.log(this.sucursales);
+    });
   }
 
   get sucCodigo(){ return this.CrearSucursalForm.controls.sucCodigo }

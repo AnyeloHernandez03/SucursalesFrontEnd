@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="dropdownMenu">Selecciona una opción</label>
+  <select class="form-control" id="dropdownMenu" [(ngModel)]="selectedItem">
+    <option *ngFor="let item of sucursales" [value]="item.monActivo">
+      {{ item.monDescripcion }}
+    </option>
+  </select>
+</div>
+
+<p class="mt-3">Has seleccionado: {{ selectedItem }}</p>

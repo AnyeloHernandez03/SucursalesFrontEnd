@@ -44,7 +44,7 @@
                                 <td>{{sucursal.sucFechaModificacion}}</td>
                                 <td>{{sucursal.monId}}</td>
                                 <td> <a routerLink="/sucursales/editar/{{sucursal.sucId}}" class="btn btn-primary">Editar</a></td>
-                                <td> <button class="btn btn-danger " type="submit" (click)="EliminarSuc(sucursal.sucId)">Eliminar</button></td>
+                                <td> <a routerLink="/sucursales/eliminar/{{sucursal.sucId}}" class="btn btn-danger">Eliminar</a></td>
 
                             
                             </tr>

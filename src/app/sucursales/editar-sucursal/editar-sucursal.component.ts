@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SucursalDTO, SucursalEdicion } from 'src/app/services/Isucursales';
+import { ListadoMonedas, SucursalDTO, SucursalEdicion } from 'src/app/services/Isucursales';
 import { SucursalesService } from 'src/app/services/sucursales.service';
 
 @Component({
@@ -12,7 +12,8 @@ import { SucursalesService } from 'src/app/services/sucursales.service';
 export class EditarSucursalComponent implements OnInit{
   fechaActual: Date = new Date();
   id: string | null = null;
-
+  sucursales: ListadoMonedas[] | undefined;
+  selectedItem: any;
   constructor (private formBuilder: FormBuilder, private router:Router, private service: SucursalesService, private activatedRoute: ActivatedRoute){}
 
 
@@ -21,13 +22,14 @@ export class EditarSucursalComponent implements OnInit{
   EditarSucursalForm = this.formBuilder.group({
     sucId:['',],
     sucCodigo:['',],
-    sucDescripcion:['',],
-    sucDirrecion:['',],
-    sucIdentificacion:['',],
+    sucDescripcion:['',Validators.maxLength(250)],
+    sucDirrecion:['',Validators.maxLength(250)],
+    sucIdentificacion:['',Validators.maxLength(50)],
     sucFechaCreacion:['',],
     sucFechaModificacion:[this.formatearFecha(this.fechaActual)],
     monId:['',],
   })
+
   ngOnInit(): void {
 
     this.id = this.activatedRoute.snapshot.paramMap.get('id'); 
@@ -50,6 +52,10 @@ export class EditarSucursalComponent implements OnInit{
         
       });
     
+      this.service.ListadoMonedas().subscribe(sucursales => {
+        this.sucursales = sucursales;
+        console.log(this.sucursales);
+      });
   }
 
   get sucCodigo(){ return this.EditarSucursalForm.controls.sucCodigo }

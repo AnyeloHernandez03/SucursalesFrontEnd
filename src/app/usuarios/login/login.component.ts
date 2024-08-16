@@ -31,9 +31,9 @@ export class LoginComponent implements OnInit{
   login(){
     if(this.loginForm.valid){
         this.service.LoginApi(this.loginForm.value as ILogin).subscribe(()=> {  
-          this.router.navigate(['/inicio']);
+          this.router.navigate(['/sucursales']);
           this.loginForm.reset();
-        });
+        },() =>  alert("credenciales incorrectas"));
     }else{
       alert("error al ingresar los datos");
     }

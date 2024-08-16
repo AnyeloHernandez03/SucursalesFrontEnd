@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+<app-nav *ngIf="UserLoginOn"></app-nav>
 
-<p *ngIf="!UserLoginOn">Por favor inicie sesion.</p>
-<p *ngIf="UserLoginOn"> bienvenido</p>
+<app-login *ngIf="!UserLoginOn"></app-login>
+<app-index-sucursales *ngIf="UserLoginOn"></app-index-sucursales>
