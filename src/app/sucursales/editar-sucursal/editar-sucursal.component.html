@@ -1,1 +1,75 @@
-<p>editar-sucursal works!</p>
+
+<div class="container-fluid">
+    
+    <app-nav></app-nav>
+    <div class="mi-div p-3 mb-3"> 
+
+        <div class="justify-content-center text-center mb-3 " style="color: #0097AE; border-radius: 05px 05px 05px 05px; box-shadow: 1px 1px 1px 1px">
+            <h2 style="font-family:Garamond ">Edicion de sucursales</h2>
+        </div> 
+        <form [formGroup]="EditarSucursalForm" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating mb-3">
+                <input formControlName="sucCodigo" type="number" class="form-control" id="sucCodigo" placeholder="name@example.com">
+                    <div *ngIf="sucCodigo.invalid && (sucCodigo.dirty || sucCodigo.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="sucCodigo.hasError('required')">
+                        El Codigo es requerido
+                        </div>
+                    </div>
+                <label for="floatingInput">Codigo</label>
+              </div>
+              
+            <div class="form-floating mb-3">
+                <input formControlName="sucDescripcion" type="text" class="form-control" id="sucDescripcion" placeholder="Password">
+                <div *ngIf="sucDescripcion.invalid && (sucDescripcion.dirty || sucDescripcion.touched)" class="alert alert-danger">
+                    <div *ngIf="sucDescripcion.hasError('required')">
+                            La Descripcion es requerida
+                    </div>
+                </div>
+                
+                <label for="floatingPassword">Descripcion</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input formControlName="sucDirrecion" type="text" class="form-control" id="sucDirrecion" placeholder="Password">
+                <div *ngIf="sucDirrecion.invalid && (sucDirrecion.dirty || sucDirrecion.touched)" class="alert alert-danger">
+                    <div *ngIf="sucDirrecion.hasError('required')">
+                            La Dirrecion es requerida
+                    </div>
+                </div>
+                
+                <label for="floatingPassword">Dirrecion</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input formControlName="sucIdentificacion" type="text" class="form-control" id="sucIdentificacion" placeholder="Password">
+                <div *ngIf="sucIdentificacion.invalid && (sucIdentificacion.dirty || sucIdentificacion.touched)" class="alert alert-danger">
+                    <div *ngIf="sucIdentificacion.hasError('required')">
+                            La Identificacion es requerida
+                    </div>
+                </div>
+                
+                <label for="floatingPassword">Identificacion</label>
+            </div>
+       
+
+            <div class="form-floating mb-3">
+                <input formControlName="monId" type="number" class="form-control" id="monId" placeholder="Password">
+                <div *ngIf="monId.invalid && (monId.dirty || monId.touched)" class="alert alert-danger">
+                    <div *ngIf="monId.hasError('required')">
+                            La Moneda es requerida
+                    </div>
+                </div>
+                
+                <label for="floatingPassword">Moneda</label>
+            </div>
+           
+
+            <div class="mb-3">
+                 <button class="btn btn-primary mb-3" type="submit" (click)="editarSucursal()">Actualizar</button>
+                 <button class="btn btn-secondary mb-3" type="submit" routerLink="/sucursales">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+</div>  
+              

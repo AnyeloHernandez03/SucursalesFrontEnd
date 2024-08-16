@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'iniciarSesion',component:LoginComponent},
   {path:'sucursales',component:IndexSucursalesComponent},
   {path:'sucursales/crear',component:CrearSucursalComponent},
-  {path:'sucursales/editar',component:EditarSucursalComponent}
+  {path:'sucursales/editar/:id',component:EditarSucursalComponent}
 
 ];
 

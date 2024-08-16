@@ -13,6 +13,8 @@
                         <td> <button class="btn btn-primary " type="submit" routerLink="/sucursales/crear">Crear Sucursal</button></td>
                     </div>
 
+                   
+
                 <div class="table-responsive">
                     <table class=" table table-info table-striped table-hover ">
                         <thead>
@@ -41,8 +43,10 @@
                                 <td>{{sucursal.sucFechaCreacion}}</td>
                                 <td>{{sucursal.sucFechaModificacion}}</td>
                                 <td>{{sucursal.monId}}</td>
-                                <td> <button class="btn btn-primary " type="submit" >Editar</button></td>
-                                <td> <button class="btn btn-danger " type="submit" >Eliminar</button></td>
+                                <td> <a routerLink="/sucursales/editar/{{sucursal.sucId}}" class="btn btn-primary">Editar</a></td>
+                                <td> <button class="btn btn-danger " type="submit" (click)="EliminarSuc(sucursal.sucId)">Eliminar</button></td>
+
+                            
                             </tr>
                         
                         

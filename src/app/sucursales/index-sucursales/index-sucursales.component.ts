@@ -9,7 +9,7 @@ import { SucursalesService } from 'src/app/services/sucursales.service';
 })
 export class IndexSucursalesComponent implements OnInit{
 
-  constructor(private service: SucursalesService ) {}
+  constructor(private service: SucursalesService) {}
 
   sucursales: ListadoSucursales[] | undefined;
 
@@ -20,5 +20,17 @@ export class IndexSucursalesComponent implements OnInit{
     });
 
   }
+
+  EditarSuc(Sucid:number){
+    console.log(Sucid);
+  }
+
+  EliminarSuc(Sucid:number){
+    console.log(Sucid);
+
+ 
+  }
+
+  
 
 }
